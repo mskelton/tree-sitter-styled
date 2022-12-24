@@ -1,12 +1,12 @@
 [package]
-name = "tree-sitter-styledcomponents"
-description = "styledcomponents grammar for the tree-sitter parsing library"
+name = "tree-sitter-styled"
+description = "styled-components grammar for the tree-sitter parsing library"
 version = "0.0.1"
-keywords = ["incremental", "parsing", "styledcomponents"]
+keywords = ["incremental", "parsing", "styled-components"]
 categories = ["parsing", "text-editors"]
-repository = "https://github.com/tree-sitter/tree-sitter-styledcomponents"
+repository = "https://github.com/tree-sitter/tree-sitter-styled"
 edition = "2018"
-license = "MIT"
+license = "ISC"
 
 build = "bindings/rust/build.rs"
 include = [

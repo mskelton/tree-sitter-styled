@@ -1,8 +1,8 @@
 {
-  "name": "tree-sitter-styled-components",
+  "name": "tree-sitter-styled",
   "version": "0.1.0",
   "description": "styled-components grammar for tree-sitter",
-  "repository": "https://github.com/mskelton/tree-sitter-styled-components.git",
+  "repository": "https://github.com/mskelton/tree-sitter-styled.git",
   "main": "bindings/node",
   "keywords": [
     "tree-sitter",
