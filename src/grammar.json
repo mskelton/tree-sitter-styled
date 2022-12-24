@@ -12,40 +12,49 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "declaration"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "declaration"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "rule_set"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "import_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "media_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "charset_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "namespace_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "keyframes_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "supports_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "at_rule"
+            }
+          ]
         },
         {
           "type": "SYMBOL",
-          "name": "rule_set"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "import_statement"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "media_statement"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "charset_statement"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "namespace_statement"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "keyframes_statement"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "supports_statement"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "at_rule"
+          "name": "interpolation"
         }
       ]
     },
@@ -438,40 +447,49 @@
       "type": "CHOICE",
       "members": [
         {
-          "type": "SYMBOL",
-          "name": "declaration"
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "declaration"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "rule_set"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "import_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "media_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "charset_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "namespace_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "keyframes_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "supports_statement"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "at_rule"
+            }
+          ]
         },
         {
           "type": "SYMBOL",
-          "name": "rule_set"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "import_statement"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "media_statement"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "charset_statement"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "namespace_statement"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "keyframes_statement"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "supports_statement"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "at_rule"
+          "name": "interpolation"
         }
       ]
     },
@@ -1711,6 +1729,36 @@
           }
         ]
       }
+    },
+    "interpolation": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "${"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "js_expression"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "}"
+            },
+            {
+              "type": "STRING",
+              "value": "};"
+            }
+          ]
+        }
+      ]
+    },
+    "js_expression": {
+      "type": "PATTERN",
+      "value": "[A-z_][A-z0-9_]*"
     }
   },
   "extras": [

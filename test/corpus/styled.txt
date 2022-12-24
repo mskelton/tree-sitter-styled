@@ -1,0 +1,55 @@
+=========================
+Top level mixins
+=========================
+
+${fontNormal}
+${fontSmall};
+
+---
+
+(stylesheet
+  (interpolation
+    (js_expression))
+  (interpolation
+    (js_expression)))
+
+=========================
+Mixins in selectors
+=========================
+
+p {
+  border: none;
+  ${fontNormal}
+  color: blue;
+}
+
+.my-class {
+  ${fontNormal};
+  border: none;
+}
+
+---
+
+(stylesheet
+  (rule_set
+    (selectors
+      (tag_name))
+    (block
+      (declaration
+        (property_name)
+        (plain_value))
+      (interpolation
+        (js_expression))
+      (declaration
+        (property_name)
+        (plain_value))))
+  (rule_set
+    (selectors
+      (class_selector
+        (class_name)))
+    (block
+      (interpolation
+        (js_expression))
+      (declaration
+        (property_name)
+        (plain_value)))))
