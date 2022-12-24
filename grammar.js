@@ -5,6 +5,6 @@ module.exports = grammar(CSS, {
 
   // rules: {
   //   // TODO: add the actual grammar rules
-  //   // source_file: $ => 'hello'
+  //   source_file: $ => 'hello'
   // },
 });
