@@ -1,5 +1,5 @@
 {
-  "name": "styled_components",
+  "name": "styled",
   "rules": {
     "stylesheet": {
       "type": "REPEAT",
