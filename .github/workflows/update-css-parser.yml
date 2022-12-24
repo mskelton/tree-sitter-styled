@@ -27,16 +27,11 @@ jobs:
           cd tree-sitter-css && git checkout origin/master && cd ..
           cp tree-sitter-css/corpus/* test/corpus
           npm test
-      - name: Commit changes
-        run: |
-          git config user.name "GitHub"
-          git config user.email "noreply@github.com"
-          git commit -am "Update dependencies and regenerate parser" || echo 'No commit necessary!'
-          git clean -xf
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
-          commit-message: Update dependencies
-          title: Update dependencies
-          branch: update-dependencies-pr
           base: ${{ github.head_ref }}
+          body: Update dependencies and regenerate CSS parser
+          branch: update-css-parser
+          commit-message: Update dependencies and regenerate CSS parser
+          title: Update CSS parser
