@@ -9,15 +9,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-node@v2
+      - uses: actions/setup-node@v3
         with:
-          node-version: 18.x
+          node-version: 18
       - name: Update CSS parser
         run: npm update
       - name: Install dependencies
         run: npm ci
       - name: Regenerate Source Files
-        run: node_modules/.bin/tree-sitter generate
+        run: npm run generate
       - name: Generate parser
         run: npm install
       - name: Run tests
@@ -25,8 +25,8 @@ jobs:
           git submodule init
           git submodule update
           cd tree-sitter-css && git checkout origin/main && cd ..
-          cp tree-sitter-css/test/corpus/* test/corpus
-          node_modules/.bin/tree-sitter test
+          cp tree-sitter-css/corpus/* test/corpus
+          npm test
       - name: Commit changes
         run: |
           git config user.name "GitHub"
