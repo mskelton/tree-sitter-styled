@@ -3,15 +3,23 @@ Top level mixins
 =========================
 
 ${fontNormal}
+border-radius: 0;
 ${fontSmall};
+border: none;
 
 ---
 
 (stylesheet
   (interpolation
     (js_expression))
+  (declaration
+    (property_name)
+    (integer_value))
   (interpolation
-    (js_expression)))
+    (js_expression))
+  (declaration
+    (property_name)
+    (plain_value)))
 
 =========================
 Mixins in selectors
@@ -53,3 +61,29 @@ p {
       (declaration
         (property_name)
         (plain_value)))))
+
+=========================
+Top level declaration interpolation
+=========================
+
+border: 0 1px ${borderColor};
+border-radius: 0;
+transition: ${standardTransition};
+
+---
+
+(stylesheet
+  (declaration
+    (property_name)
+    (integer_value)
+    (integer_value
+      (unit))
+    (interpolation
+      (js_expression)))
+  (declaration
+    (property_name)
+    (integer_value))
+  (declaration
+    (property_name)
+    (interpolation
+      (js_expression))))

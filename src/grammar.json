@@ -1276,6 +1276,15 @@
           {
             "type": "SYMBOL",
             "name": "call_expression"
+          },
+          {
+            "type": "ALIAS",
+            "content": {
+              "type": "SYMBOL",
+              "name": "_inline_interpolation"
+            },
+            "named": true,
+            "value": "interpolation"
           }
         ]
       }
@@ -1753,6 +1762,23 @@
               "value": "};"
             }
           ]
+        }
+      ]
+    },
+    "_inline_interpolation": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "${"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "js_expression"
+        },
+        {
+          "type": "STRING",
+          "value": "}"
         }
       ]
     },

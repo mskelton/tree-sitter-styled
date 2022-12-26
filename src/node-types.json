@@ -115,6 +115,10 @@
           "named": true
         },
         {
+          "type": "interpolation",
+          "named": true
+        },
+        {
           "type": "nesting_selector",
           "named": true
         },
@@ -253,6 +257,10 @@
           "named": true
         },
         {
+          "type": "interpolation",
+          "named": true
+        },
+        {
           "type": "nesting_selector",
           "named": true
         },
@@ -317,6 +325,10 @@
         },
         {
           "type": "integer_value",
+          "named": true
+        },
+        {
+          "type": "interpolation",
           "named": true
         },
         {
@@ -465,6 +477,10 @@
         },
         {
           "type": "integer_value",
+          "named": true
+        },
+        {
+          "type": "interpolation",
           "named": true
         },
         {
@@ -650,6 +666,10 @@
           "named": true
         },
         {
+          "type": "interpolation",
+          "named": true
+        },
+        {
           "type": "parenthesized_value",
           "named": true
         },
@@ -761,6 +781,10 @@
         },
         {
           "type": "integer_value",
+          "named": true
+        },
+        {
+          "type": "interpolation",
           "named": true
         },
         {
@@ -894,6 +918,10 @@
         },
         {
           "type": "integer_value",
+          "named": true
+        },
+        {
+          "type": "interpolation",
           "named": true
         },
         {
@@ -1145,6 +1173,10 @@
         },
         {
           "type": "integer_value",
+          "named": true
+        },
+        {
+          "type": "interpolation",
           "named": true
         },
         {
