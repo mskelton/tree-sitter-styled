@@ -1747,8 +1747,13 @@
           "value": "${"
         },
         {
-          "type": "SYMBOL",
-          "name": "js_expression"
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_js_expressions"
+          },
+          "named": true,
+          "value": "js_expression"
         },
         {
           "type": "CHOICE",
@@ -1773,8 +1778,13 @@
           "value": "${"
         },
         {
-          "type": "SYMBOL",
-          "name": "js_expression"
+          "type": "ALIAS",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_js_expressions"
+          },
+          "named": true,
+          "value": "js_expression"
         },
         {
           "type": "STRING",
@@ -1782,9 +1792,49 @@
         }
       ]
     },
-    "js_expression": {
+    "_js_expressions": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "SYMBOL",
+        "name": "_js_expression"
+      }
+    },
+    "_js_expression": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "_js_block"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "_js_statement"
+        }
+      ]
+    },
+    "_js_block": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "{"
+        },
+        {
+          "type": "REPEAT",
+          "content": {
+            "type": "SYMBOL",
+            "name": "_js_statement"
+          }
+        },
+        {
+          "type": "STRING",
+          "value": "}"
+        }
+      ]
+    },
+    "_js_statement": {
       "type": "PATTERN",
-      "value": "[A-z_][A-z0-9_]*"
+      "value": "[^{}]+"
     }
   },
   "extras": [

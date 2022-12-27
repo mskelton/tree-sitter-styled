@@ -986,6 +986,11 @@
     }
   },
   {
+    "type": "js_expression",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "keyframe_block",
     "named": true,
     "fields": {},
@@ -1808,10 +1813,6 @@
   },
   {
     "type": "important",
-    "named": true
-  },
-  {
-    "type": "js_expression",
     "named": true
   },
   {

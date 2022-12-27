@@ -87,3 +87,117 @@ transition: ${standardTransition};
     (property_name)
     (interpolation
       (js_expression))))
+
+=========================
+Declaration interpolation in selectors
+=========================
+
+p {
+  border: 0 1px ${borderColor};
+  border-radius: 0;
+  transition: ${standardTransition};
+}
+
+---
+
+(stylesheet
+  (rule_set
+    (selectors
+      (tag_name))
+    (block
+      (declaration
+        (property_name)
+        (integer_value)
+        (integer_value
+          (unit))
+        (interpolation
+          (js_expression)))
+      (declaration
+        (property_name)
+        (integer_value))
+      (declaration
+        (property_name)
+        (interpolation
+          (js_expression))))))
+
+=========================
+Conditional interpolation
+=========================
+
+border: 1px solid blue;
+background-color: ${({ isPrimary }) => isPrimary ? primaryColor : secondaryColor};
+box-shadow: none;
+color: ${props => props.isPrimary ? primaryColor : secondaryColor};
+
+---
+
+(stylesheet
+  (declaration
+    (property_name)
+    (integer_value
+      (unit))
+    (plain_value)
+    (plain_value))
+  (declaration
+    (property_name)
+    (interpolation
+      (js_expression)))
+  (declaration
+    (property_name)
+    (plain_value))
+  (declaration
+    (property_name)
+    (interpolation
+      (js_expression))))
+
+=========================
+Nested styles
+=========================
+
+p {
+  box-shadow: none;
+
+  ${props => props.primary && css`
+    background: white;
+    color: black;
+  `}
+}
+
+---
+
+(stylesheet
+  (rule_set
+    (selectors
+      (tag_name))
+    (block
+      (declaration
+        (property_name)
+        (plain_value))
+      (interpolation
+        (js_expression)))))
+
+=========================
+Nested styles with interpolation
+=========================
+
+p {
+  box-shadow: none;
+
+  ${props => props.primary && css`
+    background: ${props.color};
+    color: black;
+  `}
+}
+
+---
+
+(stylesheet
+  (rule_set
+    (selectors
+      (tag_name))
+    (block
+      (declaration
+        (property_name)
+        (plain_value))
+      (interpolation
+        (js_expression)))))

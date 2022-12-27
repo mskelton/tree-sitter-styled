@@ -15,10 +15,19 @@ module.exports = grammar(CSS, {
           alias($._inline_interpolation, $.interpolation)
         )
       ),
-    interpolation: $ => seq("${", $.js_expression, choice("}", "};")),
 
-    _inline_interpolation: $ => seq("${", $.js_expression, "}"),
+    interpolation: $ =>
+      seq("${", alias($._js_expressions, $.js_expression), choice("}", "};")),
 
-    js_expression: $ => /[A-z_][A-z0-9_]*/,
+    _inline_interpolation: $ =>
+      seq("${", alias($._js_expressions, $.js_expression), "}"),
+
+    _js_expressions: $ => repeat1($._js_expression),
+
+    _js_expression: $ => choice($._js_block, $._js_statement),
+
+    _js_block: $ => seq("{", repeat($._js_statement), "}"),
+
+    _js_statement: $ => /[^{}]+/,
   },
 })
