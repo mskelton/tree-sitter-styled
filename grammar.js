@@ -29,5 +29,32 @@ module.exports = grammar(CSS, {
     _js_block: $ => seq("{", repeat($._js_statement), "}"),
 
     _js_statement: $ => /[^{}]+/,
+
+    // FIXME: Remove once https://github.com/tree-sitter/tree-sitter-css/pull/30 is merged
+    pseudo_element_selector: $ =>
+      seq(
+        optional($._selector),
+        "::",
+        alias($.identifier, $.tag_name),
+        optional(alias($.pseudo_element_arguments, $.arguments))
+      ),
+
+    // FIXME: Remove once https://github.com/tree-sitter/tree-sitter-css/pull/30 is merged
+    pseudo_element_arguments: $ =>
+      seq(
+        token.immediate("("),
+        sep(",", choice($._selector, repeat1($._value))),
+        ")"
+      ),
   },
 })
+
+// FIXME: Remove once https://github.com/tree-sitter/tree-sitter-css/pull/30 is merged
+function sep(separator, rule) {
+  return optional(sep1(separator, rule))
+}
+
+// FIXME: Remove once https://github.com/tree-sitter/tree-sitter-css/pull/30 is merged
+function sep1(separator, rule) {
+  return seq(rule, repeat(seq(separator, rule)))
+}
