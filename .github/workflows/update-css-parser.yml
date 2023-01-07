@@ -13,7 +13,7 @@ jobs:
         with:
           node-version: 18
       - name: Update CSS parser
-        run: npm update
+        run: npm update tree-sitter-css
       - name: Install dependencies
         run: npm ci
       - name: Regenerate Source Files
