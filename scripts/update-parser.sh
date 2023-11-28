@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -euo pipefail
+
 npm update tree-sitter-css
 npm ci
 
