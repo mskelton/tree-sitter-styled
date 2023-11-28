@@ -1,5 +1,6 @@
 name: Update Dependencies
 on:
+  workflow_dispatch:
   schedule:
     - cron: "0 6 * * MON" # every monday at midnight
 jobs:
@@ -10,21 +11,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 18
-      - name: Update CSS parser
-        run: npm update tree-sitter-css
-      - name: Install dependencies
-        run: npm ci
-      - name: Regenerate Source Files
-        run: npm run generate
-      - name: Generate parser
-        run: npm install
-      - name: Run tests
-        run: |
-          git submodule init
-          git submodule update
-          cd tree-sitter-css && git checkout origin/master && cd ..
-          cp tree-sitter-css/corpus/* test/corpus
-          npm test
+      - name: Update parser
+        run: ./scripts/update-parser.sh
+      - name: Test
+        run: npm test
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v3
         with:
