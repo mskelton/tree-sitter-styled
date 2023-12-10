@@ -77,8 +77,10 @@ bool tree_sitter_styled_external_scanner_scan(void *payload, TSLexer *lexer,
       }
       lexer->mark_end(lexer);
       // We need a { to be a pseudo class selector, a ; indicates a property
+      // The $ is added for styled-components interpolation syntax which should
+      // not be considered a pseudo class selector.
       while (lexer->lookahead != ';' && lexer->lookahead != '}' &&
-             !lexer->eof(lexer)) {
+             lexer->lookahead != '$' && !lexer->eof(lexer)) {
         advance(lexer);
         if (lexer->lookahead == '{') {
           lexer->result_symbol = PSEUDO_CLASS_SELECTOR_COLON;
