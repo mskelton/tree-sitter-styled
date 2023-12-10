@@ -5,7 +5,7 @@ set -euo pipefail
 npm update tree-sitter-css
 npm ci
 
-npm run generate
+npm run build
 npm install
 
 git submodule init
