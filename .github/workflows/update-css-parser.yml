@@ -2,13 +2,13 @@ name: Update Dependencies
 on:
   workflow_dispatch:
   schedule:
-    - cron: "0 6 * * MON" # every monday at midnight
+    - cron: "0 0 1 * *" # every 1st of the month
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: "20.x"
       - name: Update parser
