@@ -54,7 +54,8 @@ p {
   (rule_set
     (selectors
       (class_selector
-        (class_name)))
+        (class_name
+          (identifier))))
     (block
       (interpolation
         (js_expression))
